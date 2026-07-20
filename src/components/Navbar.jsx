@@ -34,7 +34,7 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled
             ? "border-white/10 bg-[#080808]/20 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-lg"
@@ -103,7 +103,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMenu(false)}
-              className="fixed inset-0 z-[55] cursor-default bg-black/45 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[55] cursor-pointer bg-black/45 backdrop-blur-sm lg:hidden"
             />
             <motion.nav
               initial={{ x: "100%" }}

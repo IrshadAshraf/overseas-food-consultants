@@ -34,7 +34,7 @@ export default function Dialog({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4 }}
           onMouseDown={onClose}
         >
           <motion.section
@@ -46,7 +46,7 @@ export default function Dialog({
             initial={{ opacity: 0, scale: 0.9, y: 35 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
             onMouseDown={(event) => event.stopPropagation()}
           >
             <div className="sticky top-0 z-20 -mb-11 flex justify-end">

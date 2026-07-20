@@ -27,7 +27,7 @@ export default function ContactDialog({ open, onClose }) {
             className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[.02] p-4 transition-colors duration-300 hover:border-[#03AAAE]/60 hover:bg-[#03AAAE]/10"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.25 + index * 0.08 }}
+            transition={{ duration: 0.5, delay: 0.25 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ x: 5 }}
             whileTap={{ scale: 0.98 }}
           >

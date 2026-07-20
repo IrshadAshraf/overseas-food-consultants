@@ -9,7 +9,7 @@ const variants = {
   light: "border-white bg-white text-zinc-950 hover:text-white",
   dark: "border-white/10 bg-[#111] text-white hover:text-white",
   ghost: "border-white/15 bg-white/[.05] text-white hover:text-white",
-  icon: "border-white/15 bg-white/[.05] text-white hover:border-[#03AAAE] hover:text-[#03AAAE]",
+  icon: "border-white/15 bg-white/[.05] text-white hover:border-[#03AAAE] hover:text-white",
   connect: "border-transparent bg-gradient-to-r from-[#20b2b7] to-[#55ace0] text-white hover:text-white shadow-[0_12px_35px_rgba(38,174,191,.25)]",
 };
 
@@ -27,7 +27,7 @@ export default function Button({
   const styles = variants[selectedVariant] || variants.primary;
   const fill = selectedVariant === "primary" ? "bg-white" : selectedVariant === "connect" ? "bg-white/10" : "bg-[#03AAAE]";
   const sizing = selectedVariant === "icon" ? "size-11 p-0" : selectedVariant === "connect" ? "py-2 pl-6 pr-2" : "px-7 py-3.5";
-  const classes = `group relative inline-flex shrink-0 items-center justify-center gap-3 overflow-hidden rounded-full border text-sm font-bold transition-colors duration-300 ${sizing} ${styles} ${className}`;
+  const classes = `group relative inline-flex shrink-0 cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-full border text-sm font-bold transition-colors duration-300 ${sizing} ${styles} ${className}`;
   const content = (
     <>
       <span

@@ -2,7 +2,6 @@ import i1 from "@/assets/approach/Vector (28).png";
 import i2 from "@/assets/approach/Vector (29).png";
 import i3 from "@/assets/approach/Vector (30).png";
 import i4 from "@/assets/approach/Vector (31).png";
-import approachBackground from "@/assets/approach/background aproach.jpg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 const steps = [
@@ -20,6 +19,13 @@ const steps = [
     "We execute with precision and industry best practices.",
   ],
   [i4, "04", "Optimize", "We continuously monitor for long-term success."],
+];
+const backgroundRings = [
+  ["-right-[18%] -top-[48%] size-[2280px]", 16, 5, 3],
+  ["-right-[10%] -top-[30%] size-[1830px]", 14, -4, -3],
+  ["-right-[2%] -top-[12%] size-[1410px]", 12, 4, 2],
+  ["right-[8%] top-[8%] size-[990px]", 10, -3, -2],
+  ["right-[16%] top-[25%] size-[615px]", 8, 2, 2],
 ];
 export default function Approach() {
   const [activeStep, setActiveStep] = useState(0);
@@ -50,40 +56,27 @@ export default function Approach() {
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,#236d70_0%,#249b9e_48%,#39c8cc_100%)]"
       />
-      <motion.img
-        src={approachBackground}
-        alt=""
-        animate={{
-          x: ["0%", "-3%", "0%", "3%", "0%"],
-          y: ["-3%", "0%", "3%", "0%", "-3%"],
-          rotate: [0, 3, 0, -3, 0],
-          scale: [1.06, 1.12, 1.06],
-        }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute -right-[28%] -top-[30%] h-[160%] w-[92%] origin-center rounded-full object-cover object-right opacity-45 mix-blend-soft-light sm:w-[78%] md:w-[68%]"
-      />
-      <motion.img
-        src={approachBackground}
-        alt=""
-        animate={{
-          x: ["0%", "3%", "0%", "-3%", "0%"],
-          y: ["3%", "0%", "-3%", "0%", "3%"],
-          rotate: [0, -4, 0, 4, 0],
-          scale: [1.16, 1.08, 1.16],
-          opacity: [0.08, 0.16, 0.08],
-        }}
-        transition={{ duration: 33, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute -right-[34%] -top-[18%] h-[136%] w-[82%] origin-center rounded-full object-cover object-right mix-blend-screen blur-[1px] sm:w-[68%] md:w-[58%]"
-      />
-      <motion.div
-        animate={{
-          x: ["0%", "-4%", "0%", "4%", "0%"],
-          y: ["-4%", "0%", "4%", "0%", "-4%"],
-          scale: [1, 1.12, 1],
-        }}
-        transition={{ duration: 27, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute -right-[24%] -top-1/2 h-[180%] w-[70%] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,.14),transparent_65%)] blur-3xl"
-      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {backgroundRings.map(([position, duration, driftX, driftY], index) => (
+          <motion.span
+            key={position}
+            animate={{
+              x: ["0%", `${-driftY}%`, "0%", `${driftY}%`, "0%"],
+              y: ["0%", `${driftX}%`, "0%", `${-driftX}%`, "0%"],
+              rotate: [0, index % 2 === 0 ? 12 : -12, 0],
+              scale: [1, 1.04 + index * 0.01, 1],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: index * 0.35,
+            }}
+            className={`absolute rounded-full border-[20px] border-[#0f5f62]/70 shadow-[inset_0_0_24px_rgba(5,42,44,.18),0_0_28px_rgba(5,42,44,.14)] ${position}`}
+          />
+        ))}
+      </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#174f51]/80 via-[#174f51]/15 to-transparent" />
       <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] gap-14 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[.75fr_1.25fr]">
         <motion.div
@@ -111,7 +104,7 @@ export default function Approach() {
               visible: { opacity: 1, y: 0, skewY: 0, scale: 1 },
             }}
             transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,4vw,4rem)] font-black leading-[1.02] tracking-tight text-white"
+            className="font-freeman mt-4 text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,4vw,4rem)] font-normal leading-[1.02] tracking-tight text-white"
           >
             A Proven Process for Success
           </motion.h2>
@@ -121,7 +114,7 @@ export default function Approach() {
               visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
             transition={{ duration: 0.85, ease: "easeOut" }}
-            className="mt-5 max-w-md text-sm leading-7 text-white/80"
+            className="mt-5 max-w-md text-sm leading-7 text-white/90"
           >
             We follow a systematic approach to deliver measurable results for
             your food business at every stage.
@@ -197,7 +190,7 @@ export default function Approach() {
                   Step {activeNumber}
                 </p>
                 <h3 className="text-2xl font-bold text-white">{activeTitle}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/80 sm:text-base sm:leading-7">
+                <p className="mt-3 text-sm leading-6 text-white/90 sm:text-base sm:leading-7">
                   {activeText}
                 </p>
               </div>
@@ -235,7 +228,7 @@ export default function Approach() {
                 />
               ))}
             </div>
-            <p className="text-[.65rem] font-bold uppercase tracking-[.16em] text-white/55">
+            <p className="text-[.65rem] font-bold uppercase tracking-[.16em] text-white/75">
               Next · {steps[(activeStep + 1) % steps.length][2]}
             </p>
           </motion.div>
@@ -330,13 +323,13 @@ export default function Approach() {
                     />
                   </span>
                 </motion.div>
-                <span className="relative mt-4 block text-xs font-black text-black/20 transition-colors duration-500 group-hover:text-white/30">
+                <span className="relative mt-4 block text-xs font-black text-white/60 transition-colors duration-500 group-hover:text-white/80">
                   {num}
                 </span>
                 <h3 className="relative text-sm font-bold text-white transition-transform duration-500 group-hover:translate-y-0.5">
                   {title}
                 </h3>
-                <p className="relative mt-3 text-xs leading-5 text-white/85 transition-colors duration-500 group-hover:text-white">
+                <p className="relative mt-3 text-xs leading-5 text-white/90 transition-colors duration-500 group-hover:text-white">
                   {text}
                 </p>
               </motion.article>

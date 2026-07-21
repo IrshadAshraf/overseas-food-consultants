@@ -95,7 +95,7 @@ export default function Dialog({
               {title && (
                 <h2
                   id={titleId}
-                  className="mt-3 font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl"
+                  className="font-freeman mt-3 text-4xl font-normal leading-tight tracking-tight text-white sm:text-5xl"
                 >
                   {title}
                 </h2>

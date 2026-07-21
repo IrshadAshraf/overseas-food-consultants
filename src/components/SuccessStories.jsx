@@ -294,7 +294,7 @@ export default function SuccessStories() {
               visible: { opacity: 1, y: 0, skewY: 0, scale: 1 },
             }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto mt-4 max-w-xl font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(1.75rem,4vw,4rem)] font-black leading-[1.02] tracking-tight text-white sm:text-[clamp(2.5rem,4vw,4rem)]"
+            className="font-freeman mx-auto mt-4 max-w-xl text-[clamp(1.75rem,4vw,4rem)] font-normal leading-[1.02] tracking-tight text-white sm:text-[clamp(2.5rem,4vw,4rem)]"
           >
             Trusted by <span className="text-[#03AAAE]">Leading</span>
             <br />

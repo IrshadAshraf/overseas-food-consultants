@@ -73,7 +73,7 @@ export default function Expertise() {
           <p className="text-[.72rem] font-extrabold uppercase leading-4 tracking-[.14em] text-[#03AAAE]">
             Our expertise
           </p>
-          <h2 className="mx-auto mt-4 max-w-2xl font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(1.5rem,4vw,4rem)] sm:text-[clamp(2.5rem,4vw,4rem)] font-black leading-[1.02] tracking-tight text-white">
+          <h2 className="font-freeman mx-auto mt-4 max-w-2xl text-[clamp(1.5rem,4vw,4rem)] sm:text-[clamp(2.5rem,4vw,4rem)] font-normal leading-[1.02] tracking-tight text-white">
             Comprehensive
             <br />
             Consulting Services
@@ -106,7 +106,7 @@ export default function Expertise() {
                   rotateY: i % 2 === 0 ? 1.2 : -1.2,
                   transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
                 }}
-                className="group relative h-auto transform-gpu overflow-hidden rounded-[1.25rem] p-px shadow-[0_20px_55px_rgba(0,0,0,.24)] transition-shadow duration-700 ease-in-out [backface-visibility:hidden] [transform-style:preserve-3d] will-change-transform hover:shadow-[0_30px_85px_rgba(3,170,174,.18)] sm:h-full sm:rounded-[1.75rem]"
+                className="group relative h-full transform-gpu overflow-hidden rounded-[1.25rem] p-px shadow-[0_20px_55px_rgba(0,0,0,.24)] transition-shadow duration-700 ease-in-out [backface-visibility:hidden] [transform-style:preserve-3d] will-change-transform hover:shadow-[0_30px_85px_rgba(3,170,174,.18)] sm:rounded-[1.75rem]"
               >
                 <motion.span
                   animate={{ rotate: 360 }}
@@ -117,8 +117,8 @@ export default function Expertise() {
                   }}
                   className="pointer-events-none absolute inset-[-120%] transform-gpu bg-[conic-gradient(from_90deg,transparent_0deg,transparent_260deg,#03AAAE_305deg,#7cecee_325deg,transparent_360deg)] opacity-55 will-change-transform"
                 />
-                <div className="relative h-auto overflow-hidden rounded-[calc(1.25rem-1px)] bg-[#1b1b1b] ring-1 ring-inset ring-white/[.06] sm:h-full sm:rounded-[calc(1.75rem-1px)]">
-                  <div className="relative h-36 overflow-hidden sm:h-64 lg:h-[270px]">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1.25rem-1px)] bg-[#1b1b1b] ring-1 ring-inset ring-white/[.06] sm:rounded-[calc(1.75rem-1px)]">
+                  <div className="relative aspect-[183/101] w-full shrink-0 overflow-hidden">
                     <motion.img
                       src={img}
                       alt={title}
@@ -127,7 +127,7 @@ export default function Expertise() {
                     <span className="absolute inset-0 bg-gradient-to-t from-[#1b1b1b] via-transparent to-transparent opacity-70 transition-opacity duration-700 ease-in-out group-hover:opacity-25" />
                     <span className="absolute inset-0 bg-[#03AAAE]/0 mix-blend-color transition-colors duration-700 ease-in-out group-hover:bg-[#03AAAE]/20" />
                   </div>
-                  <div className="relative p-4 pb-5 pt-10 sm:min-h-[270px] sm:p-8 sm:pt-16">
+                  <div className="relative flex-1 p-4 pb-5 pt-10 sm:p-8 sm:pt-16">
                     <span className="pointer-events-none absolute inset-0 origin-bottom scale-y-0 transform-gpu bg-[linear-gradient(145deg,rgba(3,170,174,.20),rgba(3,170,174,.05)_55%,transparent)] transition-transform duration-900 ease-in-out will-change-transform group-hover:scale-y-100" />
                     <span className="pointer-events-none absolute -bottom-24 -left-24 size-64 scale-50 transform-gpu rounded-full bg-[#03AAAE]/20 blur-3xl transition-transform duration-1000 ease-in-out will-change-transform group-hover:translate-x-20 group-hover:-translate-y-20 group-hover:scale-125" />
                     <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 transform-gpu bg-gradient-to-r from-transparent via-white/[.06] to-transparent transition-transform duration-[1200ms] ease-in-out will-change-transform group-hover:translate-x-[520%]" />

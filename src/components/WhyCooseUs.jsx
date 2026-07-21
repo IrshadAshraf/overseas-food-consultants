@@ -291,7 +291,7 @@ export default function WhyCooseUs() {
                 visible: { opacity: 1, y: 0, skewY: 0, scale: 1 },
               }}
               transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(1.75rem,4vw,4rem)] font-black leading-[1.02] tracking-tight text-white sm:text-[clamp(2.5rem,4vw,4rem)]"
+              className="font-freeman mt-5 text-[clamp(1.75rem,4vw,4rem)] font-normal leading-[1.02] tracking-tight text-white sm:text-[clamp(2.5rem,4vw,4rem)]"
             >
               Delivering <span className="text-[#03AAAE]">Value</span> at
               <br />

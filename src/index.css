@@ -1,1 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Freeman&display=swap");
 @import "tailwindcss";
+
+@utility font-freeman {
+  font-family: "Freeman", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0 !important;
+  line-height: 60px !important;
+}

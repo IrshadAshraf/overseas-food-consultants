@@ -30,16 +30,16 @@ function FeatureCard({ feature, index, mobile = false }) {
   return (
     <motion.article
       whileHover={mobile ? undefined : { y: -10, rotateX: 3, rotateY: index === 1 ? 0 : 3 }}
-      className={`${mobile ? "h-[260px]" : "min-h-60 md:min-h-70 lg:min-h-85 xl:min-h-70"} group relative overflow-hidden rounded-2xl p-7 shadow-[0_16px_45px_rgba(0,0,0,.16)] transition-shadow duration-300 hover:shadow-[0_24px_65px_rgba(3,170,174,.16)]`}
+      className="group relative aspect-[121/115] h-auto w-full max-w-[242px] overflow-hidden rounded-2xl p-[clamp(1rem,2vw,1.25rem)] shadow-[0_16px_45px_rgba(0,0,0,.16)] transition-shadow duration-300 hover:shadow-[0_24px_65px_rgba(3,170,174,.16)]"
     >
       <motion.span animate={{ rotate: 360 }} transition={{ duration: 9, repeat: Infinity, ease: "linear" }} className="pointer-events-none absolute -inset-[120%] bg-[conic-gradient(from_90deg,transparent_0deg,transparent_260deg,#03AAAE_305deg,#7cecee_325deg,transparent_360deg)] opacity-55" />
       <span className="pointer-events-none absolute inset-px rounded-[15px] bg-[#191919] transition-colors duration-300 group-hover:bg-[#122526]" />
       <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-[#03AAAE]/10 blur-3xl transition-transform duration-300 group-hover:scale-150" />
-      <span className="relative grid size-12 place-items-center rounded-full border border-[#03AAAE] bg-[#03AAAE]/5 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-[#03AAAE]/15">
-        <img className="size-6 object-contain" src={icon} alt="" />
+      <span className="relative grid size-[clamp(2.5rem,5vw,2.75rem)] place-items-center rounded-full border border-[#03AAAE] bg-[#03AAAE]/5 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 group-hover:bg-[#03AAAE]/15">
+        <img className="size-[clamp(1.125rem,2.5vw,1.25rem)] object-contain" src={icon} alt="" />
       </span>
-      <h3 className="relative mt-6 font-bold text-white">{title}</h3>
-      <p className="relative mt-4 text-sm leading-6 text-zinc-500">{text}</p>
+      <h3 className="relative mt-4 font-bold leading-5 text-white">{title}</h3>
+      <p className="relative mt-3 text-sm leading-5 text-zinc-500">{text}</p>
     </motion.article>
   );
 }
@@ -68,7 +68,7 @@ export default function AboutUs() {
           <p className="text-[.72rem] font-extrabold uppercase leading-4 tracking-[.14em] text-[#03AAAE]">
             Elevating your food business
           </p>
-          <h2 className="mt-5 font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(1.5rem,3vw,4rem)] sm:text-[clamp(2rem,3vw,4rem)] md:text-[clamp(2.5rem,3vw,4rem)] font-black leading-[1.02] tracking-tight text-white">
+          <h2 className="font-freeman mt-5 text-[clamp(1.5rem,3vw,4rem)] sm:text-[clamp(2rem,3vw,4rem)] md:text-[clamp(2.5rem,3vw,4rem)] font-normal leading-[1.02] tracking-tight text-white">
             Your Partner in Food Industry Success
           </h2>
           <p className="mt-5 max-w-xl text-[.92rem] leading-7 text-[#92929d]">

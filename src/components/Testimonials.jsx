@@ -143,7 +143,7 @@ export default function Testimonials() {
                   visible: { opacity: 1, y: 0, skewY: 0, scale: 1 },
                 }}
                 transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-4 font-[Impact,Haettenschweiler,'Arial_Narrow_Bold',sans-serif] text-[clamp(2.5rem,4vw,4rem)] font-black leading-[1.02] tracking-[-.025em] text-white"
+                className="font-freeman mt-4 text-[clamp(2.5rem,4vw,4rem)] font-normal leading-[1.02] tracking-[-.025em] text-white"
               >
                 What Our <span className="text-[#03AAAE]">Clients</span> Say
               </motion.h2>

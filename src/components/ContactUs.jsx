@@ -57,7 +57,7 @@ export default function ContactUs() {
               OFC
             </span>
             <div>
-              <h2 className="text-sm font-black text-white sm:text-xl lg:text-3xl">
+              <h2 className="font-freeman text-sm font-normal text-white sm:text-xl lg:text-3xl">
                 Ready to Elevate Your Food Business?
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-white/60">

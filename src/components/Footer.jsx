@@ -47,7 +47,7 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-[#0d0d0d] px-6 pb-8 pt-16 text-zinc-500 lg:px-0"
+      className="relative overflow-hidden bg-[#0d0d0d] px-6 pb-6 pt-12 text-zinc-500 lg:px-0"
     >
       <motion.span
         animate={{ x: ["-25%", "75%", "-25%"], y: ["-30%", "35%", "-30%"] }}

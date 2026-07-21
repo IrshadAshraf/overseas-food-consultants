@@ -52,7 +52,7 @@ const cards = [
 ];
 export default function Expertise() {
   return (
-    <div className="relative overflow-hidden bg-black py-18 sm:py-20 lg:py-32">
+    <div className="relative overflow-hidden bg-black py-9 sm:py-11 lg:py-[68px]">
       <motion.span
         animate={{ x: ["-15%", "55%", "-15%"], y: ["-20%", "35%", "-20%"], scale: [1, 1.25, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}

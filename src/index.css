@@ -5,5 +5,11 @@
   font-family: "Freeman", sans-serif;
   font-weight: 400;
   letter-spacing: 0 !important;
-  line-height: 60px !important;
+  line-height: 50px !important;
+}
+
+@media (min-width: 64rem) {
+  .font-freeman {
+    line-height: 60px !important;
+  }
 }

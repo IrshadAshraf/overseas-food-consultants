@@ -146,7 +146,7 @@ export default function Testimonials() {
             className="pointer-events-none absolute -left-1/2 h-28 w-[200%] rotate-[-12deg] bg-white/[.045] blur-xl"
           />
         </div>
-        <div className="flex items-center px-6 py-20 lg:pl-4 lg:pr-0">
+        <div className="flex items-center px-6 py-12 sm:py-14 lg:py-16 lg:pl-4 lg:pr-0">
           <div className="w-full max-w-3xl lg:max-w-none">
             <motion.div
               initial="hidden"

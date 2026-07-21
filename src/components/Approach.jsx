@@ -47,7 +47,7 @@ export default function Approach() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="relative overflow-hidden bg-[#03AAAE] py-20"
+      className="relative overflow-hidden bg-[#03AAAE] py-9 sm:py-11 lg:py-[68px]"
     >
       <motion.div
         initial={{ opacity: 0, scale: 1.08 }}
@@ -249,7 +249,7 @@ export default function Approach() {
                 ease: "linear",
               },
             }}
-            className="pointer-events-none absolute left-[10%] right-[10%] top-7 hidden h-px origin-left bg-[repeating-linear-gradient(90deg,rgba(255,255,255,.45)_0_7px,transparent_7px_14px)] lg:block"
+            className="pointer-events-none absolute left-[10%] right-[10%] top-11 hidden h-px origin-left bg-[repeating-linear-gradient(90deg,rgba(255,255,255,.45)_0_7px,transparent_7px_14px)] lg:block"
           />
           {steps.map(([icon, num, title, text], i) => (
             <motion.div
@@ -278,7 +278,6 @@ export default function Approach() {
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="group relative min-h-[210px] transform-gpu overflow-hidden rounded-2xl px-2 py-4 sm:px-4"
               >
-                <span className="pointer-events-none absolute inset-0 origin-bottom scale-y-0 bg-[linear-gradient(to_top,rgba(0,0,0,.24),rgba(255,255,255,.08))] ring-1 ring-inset ring-white/0 backdrop-blur-sm transition-[transform,box-shadow] duration-700 ease-in-out group-hover:scale-y-100 group-hover:ring-white/15" />
                 <span className="pointer-events-none absolute -bottom-20 left-1/2 size-40 -translate-x-1/2 scale-50 rounded-full bg-[#03AAAE]/25 blur-2xl transition-transform duration-700 group-hover:-translate-y-16 group-hover:scale-125" />
                 <motion.div className="relative mx-auto size-14">
                   <motion.span

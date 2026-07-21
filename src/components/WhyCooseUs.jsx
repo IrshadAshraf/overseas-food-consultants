@@ -240,7 +240,7 @@ export default function WhyCooseUs() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.05 }}
       transition={{ duration: 0.75 }}
-      className="relative overflow-hidden bg-black py-18 sm:py-20 lg:py-32"
+      className="relative overflow-hidden bg-black py-9 sm:py-11 lg:py-[68px]"
     >
       <motion.div
         animate={{

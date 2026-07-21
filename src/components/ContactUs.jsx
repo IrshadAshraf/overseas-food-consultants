@@ -14,7 +14,7 @@ export default function ContactUs() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="relative overflow-hidden bg-[#03AAAE] py-16">
+      <div className="relative overflow-hidden bg-[#03AAAE] py-10 sm:py-12 lg:py-14">
         <motion.div
           initial={{ opacity: 0, scale: 1.08 }}
           whileInView={{ opacity: 1, scale: 1 }}

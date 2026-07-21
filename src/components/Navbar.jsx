@@ -67,7 +67,7 @@ export default function Navbar() {
                 smooth
                 key={id}
                 to={`/#${id}`}
-                className="group relative py-2 text-[.72rem] uppercase tracking-[.08em] text-zinc-400 transition-colors duration-300 hover:text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-[#03AAAE] after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+                className="group relative py-2 text-[0.75rem] uppercase tracking-widest text-zinc-300 transition-colors duration-300 hover:text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-[#03AAAE] after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
               >
                 {label}
               </HashLink>

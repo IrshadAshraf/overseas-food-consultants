@@ -61,10 +61,10 @@ const borderAnimations = [
   },
   {
     background:
-      "repeating-conic-gradient(from 45deg,rgba(3,170,174,.9) 0deg 8deg,transparent 8deg 25deg,rgba(255,255,255,.5) 25deg 31deg,transparent 31deg 52deg)",
-    rotate: [0, 180, 360],
-    scale: [1, 1.06, 1],
-    duration: 16,
+      "conic-gradient(from 0deg,transparent 8%,rgba(3,170,174,.95) 26%,rgba(255,255,255,.75) 32%,transparent 42%,transparent 72%,rgba(3,170,174,.45) 84%,transparent 94%)",
+    rotate: [0, 360],
+    scale: [1, 1.04, 1],
+    duration: 10,
   },
   {
     background:
@@ -119,7 +119,7 @@ function FeatureCard({ icon, title, text, index }) {
         whileHover={{ y: -10, scale: 1.015 }}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative min-h-[190px] cursor-default overflow-hidden rounded-2xl p-px shadow-[0_16px_50px_rgba(0,0,0,.25)]"
+        className="group relative aspect-[330/169] cursor-default overflow-hidden rounded-2xl p-px shadow-[0_16px_50px_rgba(0,0,0,.25)]"
       >
         <motion.span
           animate={{ rotate: border.rotate, scale: border.scale }}
@@ -147,10 +147,10 @@ function FeatureCard({ icon, title, text, index }) {
         </div>
 
         <div
-          className="relative p-5 sm:p-6"
+          className="relative flex h-full items-center gap-4 p-4 lg:gap-3 lg:p-2 xl:gap-4 xl:p-4"
           style={{ transform: "translateZ(30px)" }}
         >
-          <div className="relative size-14">
+          <div className="relative size-10 shrink-0 lg:size-9 xl:size-10">
             <motion.span
               animate={{ rotate: [0, 360] }}
               transition={{
@@ -174,23 +174,25 @@ function FeatureCard({ icon, title, text, index }) {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative z-10 size-6 object-contain brightness-0 invert transition-[filter] duration-500 group-hover:invert-0"
+                className="relative z-10 size-5 object-contain brightness-0 invert transition-[filter] duration-500 group-hover:invert-0 lg:size-4 xl:size-5"
               />
             </motion.span>
           </div>
-          <h3 className="mt-6 text-sm font-black uppercase tracking-wide text-white transition-colors duration-500 group-hover:text-[#6ff9fc]">
-            {title}
-          </h3>
-          <p className="mt-3 text-xs leading-5 text-zinc-400 transition-colors duration-500 group-hover:text-white/85">
-            {text}
-          </p>
-          <motion.span
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.45 + index * 0.12 }}
-            className="mt-5 block h-px w-12 origin-left bg-[#03AAAE] transition-[width] duration-500 group-hover:w-full"
-          />
+          <div className="min-w-0 flex-1">
+            <h3 className="text-sm font-black uppercase tracking-wide text-white transition-colors duration-500 group-hover:text-[#6ff9fc] lg:text-[11px] lg:leading-[14px] xl:text-sm xl:leading-normal">
+              {title}
+            </h3>
+            <p className="mt-2 text-xs leading-4 text-zinc-400 transition-colors duration-500 group-hover:text-white/85 lg:mt-1 lg:text-[10px] lg:leading-3 xl:mt-2 xl:text-xs xl:leading-4">
+              {text}
+            </p>
+            <motion.span
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.45 + index * 0.12 }}
+              className="mt-3 block h-px w-12 origin-left bg-[#03AAAE] transition-[width] duration-500 group-hover:w-full lg:mt-2 xl:mt-3"
+            />
+          </div>
         </div>
       </motion.article>
     </motion.div>
@@ -260,7 +262,7 @@ export default function WhyCooseUs() {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.018)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
       />
 
-      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center gap-16 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[1.08fr_.92fr] lg:px-12">
+      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center justify-items-center gap-16 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[1.08fr_.92fr] lg:px-12">
         <div className="order-2 lg:order-1">
           <motion.div
             initial="hidden"
@@ -443,13 +445,13 @@ export default function WhyCooseUs() {
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
-          className="relative order-1 mx-auto grid h-[580px] w-full max-w-[650px] grid-cols-[1.08fr_.92fr] gap-4 sm:h-[680px] lg:order-2"
+          className="relative order-1 mx-auto grid h-[580px] w-full max-w-[650px] grid-cols-[1.08fr_.92fr] gap-4 sm:h-[680px] lg:order-2 lg:content-center"
         >
           <motion.div
             style={{ y: imageOneY, rotate: imageRotate }}
             whileHover={{ scale: 1.025, rotate: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative mt-14 h-[470px] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)] sm:h-[570px]"
+            className="group relative mt-14 aspect-[271/461] w-full overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)]"
           >
             <motion.div
               animate={{
@@ -496,7 +498,7 @@ export default function WhyCooseUs() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative h-[350px] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)] sm:h-[430px]"
+              className="group relative aspect-[271/390] w-full overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)]"
             >
               <motion.div
                 animate={{
@@ -528,7 +530,7 @@ export default function WhyCooseUs() {
               viewport={{ once: true, amount: 0.4 }}
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative flex min-h-[190px] flex-col justify-center overflow-hidden rounded-[1.5rem] border border-white/30 bg-[#03AAAE] p-5 text-white shadow-[0_20px_55px_rgba(3,170,174,.25)] sm:min-h-[215px] sm:p-7"
+              className="group relative flex aspect-[271/200] w-full flex-col justify-center overflow-hidden rounded-[1.5rem] border border-white/30 bg-[#03AAAE] p-5 text-white shadow-[0_20px_55px_rgba(3,170,174,.25)] sm:p-7 lg:p-2 xl:p-5"
             >
               <motion.span
                 animate={{ rotate: [0, 360] }}
@@ -591,7 +593,7 @@ export default function WhyCooseUs() {
                   className={`pointer-events-none absolute size-1.5 rounded-full bg-white shadow-[0_0_12px_white] ${position}`}
                 />
               ))}
-              <div className="relative mb-3 flex items-center gap-2 text-[.6rem] font-black uppercase tracking-[.18em] text-white/80">
+              <div className="relative mb-3 flex items-center gap-2 text-[.6rem] font-black uppercase tracking-[.18em] text-white/80 lg:mb-0.5 lg:gap-1 lg:text-[8px] lg:tracking-[.12em] xl:mb-2 xl:gap-2 xl:text-[.6rem] xl:tracking-[.18em]">
                 <motion.span
                   animate={{ scale: [1, 1.7, 1], opacity: [1, 0.35, 1] }}
                   transition={{
@@ -624,16 +626,16 @@ export default function WhyCooseUs() {
                     ease: "easeInOut",
                   },
                 }}
-                className="relative text-4xl sm:text-5xl"
+                className="relative text-4xl sm:text-5xl lg:text-2xl xl:text-4xl"
               >
                 150+
               </motion.b>
-              <p className="relative mt-2 text-xs leading-5 text-white/80 sm:text-sm">
+              <p className="relative mt-2 text-xs leading-5 text-white/80 sm:text-sm lg:mt-0.5 lg:text-[9px] lg:leading-3 xl:mt-2 xl:text-xs xl:leading-5">
                 Community Townhalls
                 <br />
                 Hosted This Year
               </p>
-              <span className="relative mt-5 h-px w-12 bg-white/70 transition-[width] duration-700 group-hover:w-full" />
+              <span className="relative mt-5 h-px w-12 bg-white/70 transition-[width] duration-700 group-hover:w-full lg:mt-1 xl:mt-3" />
             </motion.div>
           </motion.div>
 

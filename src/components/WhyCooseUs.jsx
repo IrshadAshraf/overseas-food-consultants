@@ -451,7 +451,7 @@ export default function WhyCooseUs() {
             style={{ y: imageOneY, rotate: imageRotate }}
             whileHover={{ scale: 1.025, rotate: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative mt-14 aspect-[271/461] w-full overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)]"
+            className="group relative mt-14 aspect-[271/450] w-full overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,.45)]"
           >
             <motion.div
               animate={{

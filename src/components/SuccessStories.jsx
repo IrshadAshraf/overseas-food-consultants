@@ -99,7 +99,7 @@ function StoryCard({ story, index }) {
             className="pointer-events-none absolute -bottom-24 -right-20 size-72 rounded-full bg-[#03AAAE] blur-3xl"
           />
 
-          <div className="relative h-64 overflow-hidden rounded-xl sm:h-72 md:h-56 xl:h-72">
+          <div className="relative aspect-[330/257] w-full overflow-hidden rounded-xl">
             <motion.img
               src={img}
               alt={title}
@@ -195,7 +195,7 @@ function StoryCard({ story, index }) {
               {title}
             </motion.h3>
 
-            <div className="mt-6 flex w-2/3 flex-wrap items-center gap-x-8 gap-y-3 text-xs text-zinc-400 xl:gap-x-12 xl:text-sm">
+            <div className="mt-6 flex w-full items-center gap-x-8 gap-y-3 text-xs text-zinc-400 xl:gap-x-12 xl:text-sm">
               {metadata.map(([Icon, label], metadataIndex) => (
                 <motion.div
                   key={label}
@@ -270,7 +270,7 @@ export default function SuccessStories() {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.018)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:linear-gradient(to_bottom,transparent,black_22%,black_80%,transparent)]"
       />
 
-      <div className="relative mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)]">
+      <div className="relative mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)] lg:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"

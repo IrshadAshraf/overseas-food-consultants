@@ -42,7 +42,7 @@ export default function Navbar() {
         }`}
       >
         <div
-          className={`mx-auto flex w-full max-w-[1650px] items-center justify-between px-5 transition-all duration-300 lg:px-10 ${
+          className={`mx-auto flex w-full max-w-[1650px] items-center justify-between px-5 transition-all duration-300 lg:px-12 ${
             scrolled ? "h-20" : "h-28"
           }`}
         >

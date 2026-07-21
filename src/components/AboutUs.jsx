@@ -63,7 +63,7 @@ export default function AboutUs() {
   return (
     <>
     <div className="bg-[#151515] py-18 sm:py-20 lg:py-32">
-      <div className="mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center gap-14 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[.8fr_1.2fr]">
+      <div className="mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center gap-14 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[.8fr_1.2fr] lg:px-12">
         <Reveal>
           <p className="text-[.72rem] font-extrabold uppercase leading-4 tracking-[.14em] text-[#03AAAE]">
             Elevating your food business

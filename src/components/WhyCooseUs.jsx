@@ -260,7 +260,7 @@ export default function WhyCooseUs() {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.018)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]"
       />
 
-      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center gap-16 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[1.08fr_.92fr]">
+      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] items-center gap-16 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[1.08fr_.92fr] lg:px-12">
         <div className="order-2 lg:order-1">
           <motion.div
             initial="hidden"

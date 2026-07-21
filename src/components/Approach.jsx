@@ -61,9 +61,9 @@ export default function Approach() {
           <motion.span
             key={position}
             animate={{
-              x: ["0%", `${-driftY}%`, "0%", `${driftY}%`, "0%"],
-              y: ["0%", `${driftX}%`, "0%", `${-driftX}%`, "0%"],
-              rotate: [0, index % 2 === 0 ? 12 : -12, 0],
+              x: ["0%", `${driftX}%`, "0%", `${-driftX}%`, "0%"],
+              y: ["0%", `${driftY}%`, "0%", `${-driftY}%`, "0%"],
+              rotate: [90, index % 2 === 0 ? 102 : 78, 90],
               scale: [1, 1.04 + index * 0.01, 1],
               opacity: [0.2, 0.5, 0.2],
             }}
@@ -78,7 +78,7 @@ export default function Approach() {
         ))}
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#174f51]/80 via-[#174f51]/15 to-transparent" />
-      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] gap-14 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[.75fr_1.25fr]">
+      <div className="relative mx-auto grid w-[calc(100%-2rem)] max-w-[1650px] gap-14 sm:w-[calc(100%-2.5rem)] lg:grid-cols-[.75fr_1.25fr] lg:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"

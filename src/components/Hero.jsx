@@ -6,15 +6,9 @@ import icon3 from "@/assets/hero/Vector (17).png";
 import icon4 from "@/assets/hero/Vector (18).png";
 import Button from "@/ui/Button";
 import Dialog from "@/ui/Dialog";
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   CalendarDays,
-  ChevronRight,
   Clock3,
   Sparkles,
   Users,
@@ -54,7 +48,6 @@ const badges = [
 export default function Hero() {
   const ref = useRef(null);
   const [activeDialog, setActiveDialog] = useState(null);
-  const [activeBadge, setActiveBadge] = useState(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -83,7 +76,7 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.1 }}
         className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.96)_0%,rgba(0,0,0,.78)_29%,rgba(0,0,0,.28)_58%,rgba(0,0,0,.04)_82%),linear-gradient(0deg,rgba(0,0,0,.7)_0%,transparent_42%,rgba(0,0,0,.15)_100%)]"
       />
-      <div className="relative z-10 mx-auto flex h-full min-h-0 max-w-[1650px] items-center px-6 pb-[clamp(1.5rem,5svh,4rem)] pt-[clamp(6rem,14svh,9rem)] lg:px-10 lg:pb-[clamp(1.5rem,4svh,2.5rem)] lg:pt-[clamp(6rem,12svh,9rem)]">
+      <div className="relative z-10 mx-auto flex h-full min-h-0 max-w-[1650px] items-center px-6 pb-[clamp(1.5rem,5svh,4rem)] pt-[clamp(6rem,14svh,9rem)] lg:px-12 lg:pb-[clamp(1.5rem,4svh,2.5rem)] lg:pt-[clamp(6rem,12svh,9rem)]">
         <div className="max-w-[650px] md:max-w-[52%] lg:max-w-[650px]">
           <motion.p
             initial={{ opacity: 0, x: -24 }}
@@ -163,17 +156,10 @@ export default function Hero() {
         </div>
       </div>
       <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
-        {badges.map(([icon, title, sub, position, details], i) => {
-          const expanded = activeBadge === i;
+        {badges.map(([icon, title, sub, position], i) => {
           return (
-            <motion.button
-              type="button"
+            <motion.div
               key={title}
-              layout="size"
-              aria-expanded={expanded}
-              onClick={() =>
-                setActiveBadge((current) => (current === i ? null : i))
-              }
               initial={{ opacity: 0, x: 70, scale: 0.86, rotateY: -12 }}
               animate={{
                 opacity: 1,
@@ -203,8 +189,12 @@ export default function Hero() {
                 transformPerspective: 1000,
                 transformStyle: "preserve-3d",
               }}
-              whileTap={{ scale: 0.98 }}
-              className={`${position} pointer-events-auto absolute flex transform-gpu cursor-pointer items-center gap-3 overflow-hidden rounded-2xl px-3.5 text-left shadow-[0_18px_45px_rgba(0,0,0,.3)] [backface-visibility:hidden] [will-change:transform] lg:px-4 xl:gap-4 xl:px-5 ${expanded ? "h-[112px] !w-[min(88vw,350px)]" : "h-[68px] w-[210px] lg:h-[74px] lg:w-[230px] xl:h-[80px] xl:w-[260px]"}`}
+              whileHover={{
+                x: -12,
+                scale: 1.02,
+                transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+              }}
+              className={`${position} group pointer-events-auto absolute flex h-[68px] w-[210px] transform-gpu cursor-pointer items-center gap-3 overflow-hidden rounded-2xl px-3.5 text-left shadow-[0_18px_45px_rgba(0,0,0,.3)] [backface-visibility:hidden] [will-change:transform] lg:h-[74px] lg:w-[230px] lg:px-4 xl:h-[80px] xl:w-[260px] xl:gap-4 xl:px-5`}
             >
               <motion.span
                 className="absolute -inset-[100%] bg-[conic-gradient(from_90deg,transparent_0deg,transparent_235deg,#03AAAE_285deg,#8df4f6_315deg,transparent_360deg)]"
@@ -212,6 +202,7 @@ export default function Hero() {
                 transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
               />
               <span className="absolute inset-px rounded-[15px] bg-[linear-gradient(135deg,rgba(18,35,35,.64),rgba(3,10,10,.34))] shadow-[inset_0_1px_0_rgba(255,255,255,.12),inset_0_0_30px_rgba(3,170,174,.05)] ring-1 ring-inset ring-white/[.07] backdrop-blur-2xl" />
+              <span className="absolute inset-px origin-left scale-x-0 rounded-[15px] bg-[linear-gradient(90deg,rgba(5,72,74,.96),rgba(8,96,99,.9))] transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-x-100" />
               <span className="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-[#24b2b8] shadow-[0_8px_24px_rgba(3,170,174,.25)] lg:size-12 xl:size-14">
                 <motion.img
                   src={icon}
@@ -240,24 +231,8 @@ export default function Hero() {
                 <small className="text-xs text-zinc-400 xl:text-sm">
                   {sub}
                 </small>
-                <AnimatePresence initial={false}>
-                  {expanded && (
-                    <motion.small
-                      initial={{ opacity: 0, height: 0, y: 8 }}
-                      animate={{ opacity: 1, height: "auto", y: 0 }}
-                      exit={{ opacity: 0, height: 0, y: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className="mt-2 block max-w-[245px] overflow-hidden text-[10px] leading-4 text-zinc-300 lg:text-[11px]"
-                    >
-                      {details}
-                    </motion.small>
-                  )}
-                </AnimatePresence>
               </span>
-              <ChevronRight
-                className={`relative z-10 size-4 shrink-0 text-[#03AAAE] transition-transform duration-300 ${expanded ? "rotate-90" : "rotate-0"}`}
-              />
-            </motion.button>
+            </motion.div>
           );
         })}
       </div>

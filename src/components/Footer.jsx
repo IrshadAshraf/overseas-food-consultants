@@ -47,14 +47,14 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: 0.8 }}
-      className="relative overflow-hidden bg-[#0d0d0d] px-6 pb-8 pt-16 text-zinc-500"
+      className="relative overflow-hidden bg-[#0d0d0d] px-6 pb-8 pt-16 text-zinc-500 lg:px-0"
     >
       <motion.span
         animate={{ x: ["-25%", "75%", "-25%"], y: ["-30%", "35%", "-30%"] }}
         transition={{ duration: 32, repeat: Infinity, ease: "easeInOut" }}
         className="pointer-events-none absolute left-0 top-0 size-96 rounded-full bg-[#03AAAE]/[.045] blur-[120px]"
       />
-      <div className="relative mx-auto w-full max-w-[1650px]">
+      <div className="relative mx-auto w-full max-w-[1650px] lg:px-12">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <motion.div
             initial={{ opacity: 0, x: -35 }}

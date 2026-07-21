@@ -25,6 +25,40 @@ const reviews = [
     text: "A thoughtful, experienced team that understands both regulation and the realities of running a food business.",
   },
 ];
+
+function DesktopReviewCard({ review }) {
+  return (
+    <motion.article
+      className="h-[142px] w-[calc(66.6667%_-_10.6667px)] shrink-0 rounded-2xl border border-white/[.07] bg-[#1b1b1b] p-5 shadow-[0_16px_45px_rgba(0,0,0,.18)] transition-[border-color,background-color,box-shadow] duration-300 hover:border-[#03AAAE]/35 hover:bg-[#1d2020] hover:shadow-[0_18px_50px_rgba(3,170,174,.1)]"
+    >
+      <div className="flex items-center gap-3">
+        <img
+          src={avatar}
+          alt={review.name}
+          className="size-9 shrink-0 rounded-full border-2 border-[#03AAAE] object-cover"
+        />
+        <div className="min-w-0">
+          <b className="block truncate text-xs text-white">{review.name}</b>
+          <span className="block truncate text-[10px] text-zinc-500">
+            {review.role}
+          </span>
+          <div className="mt-1 flex gap-0.5">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <Star
+                key={index}
+                className="size-3 fill-[#03AAAE] text-[#03AAAE]"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      <p className="mt-3 line-clamp-3 text-[11px] italic leading-4 text-zinc-400">
+        “{review.text}”
+      </p>
+    </motion.article>
+  );
+}
+
 export default function Testimonials() {
   const sectionRef = useRef();
   const [active, setActive] = useState(0);
@@ -104,7 +138,7 @@ export default function Testimonials() {
             />
           </motion.div>
           <div className="pointer-events-none absolute inset-0 bg-[#071b1a]/15 mix-blend-multiply" />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(22,22,22,.03)_38%,rgba(22,22,22,.28)_62%,rgba(22,22,22,.78)_84%,#161616_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(22,22,22,.03)_38%,rgba(22,22,22,.32)_60%,rgba(22,22,22,.82)_78%,rgba(22,22,22,.98)_90%,#161616_96%,#161616_100%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(22,22,22,.24)_0%,transparent_22%,transparent_72%,rgba(22,22,22,.58)_100%)]" />
           <motion.span
             animate={{ y: ["-140%", "170%"] }}
@@ -112,8 +146,8 @@ export default function Testimonials() {
             className="pointer-events-none absolute -left-1/2 h-28 w-[200%] rotate-[-12deg] bg-white/[.045] blur-xl"
           />
         </div>
-        <div className="flex items-center px-6 py-20 lg:px-16">
-          <div className="w-full max-w-3xl">
+        <div className="flex items-center px-6 py-20 lg:pl-4 lg:pr-0">
+          <div className="w-full max-w-3xl lg:max-w-none">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -169,7 +203,7 @@ export default function Testimonials() {
                 if (event.key === "ArrowLeft") changeReview(-1);
                 if (event.key === "ArrowRight") changeReview(1);
               }}
-              className="relative mt-9 outline-none"
+              className="relative mx-auto mt-9 w-full max-w-xl outline-none lg:hidden"
             >
               <div className="pointer-events-none absolute inset-x-5 top-5 h-full rounded-2xl border border-white/5 bg-white/[.025]" />
               <div className="pointer-events-none absolute inset-x-2 top-2.5 h-full rounded-2xl border border-white/[.06] bg-white/[.02]" />
@@ -301,7 +335,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-7 flex items-center justify-between gap-4"
+              className="mx-auto mt-7 flex w-full max-w-xl items-center justify-between gap-4 lg:hidden"
             >
               <button
                 type="button"
@@ -331,6 +365,68 @@ export default function Testimonials() {
                 <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5" />
               </button>
             </motion.div>
+            <div
+              role="region"
+              aria-label="Client reviews carousel"
+              tabIndex={0}
+              onFocus={() => setPaused(true)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setPaused(false);
+                }
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") changeReview(-1);
+                if (event.key === "ArrowRight") changeReview(1);
+              }}
+              className="mt-9 hidden w-full overflow-hidden outline-none lg:block"
+            >
+              <div className="relative h-[142px]">
+                <AnimatePresence initial={false} custom={direction}>
+                  <motion.div
+                    key={active}
+                    custom={direction}
+                    initial={{ x: direction > 0 ? "67%" : "-67%" }}
+                    animate={{ x: "0%" }}
+                    exit={{ x: direction > 0 ? "-67%" : "67%" }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.35}
+                    onDragStart={() => setPaused(true)}
+                    onDragEnd={(_, info) => {
+                      if (Math.abs(info.offset.x) > 55) {
+                        changeReview(info.offset.x < 0 ? 1 : -1);
+                      }
+                      setPaused(false);
+                    }}
+                    className="absolute inset-x-0 top-0 flex cursor-grab gap-4 active:cursor-grabbing"
+                  >
+                    {[0, 1].map((offset) => {
+                      const review = reviews[(active + offset) % reviews.length];
+                      return (
+                        <DesktopReviewCard
+                          key={`${active}-${review.name}`}
+                          review={review}
+                        />
+                      );
+                    })}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <div className="mt-5 flex gap-2">
+                {reviews.map((_, index) => (
+                  <button
+                    type="button"
+                    key={index}
+                    onClick={() => selectReview(index)}
+                    aria-label={`Show testimonial ${index + 1}`}
+                    aria-current={index === active ? "true" : undefined}
+                    className={`h-1.5 cursor-pointer rounded-full transition-all duration-500 ${index === active ? "w-7 bg-[#03AAAE]" : "w-1.5 bg-zinc-600 hover:bg-zinc-400"}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

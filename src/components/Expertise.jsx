@@ -68,7 +68,7 @@ export default function Expertise() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,170,174,.12)_1px,transparent_1px)] [background-size:42px_42px] [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]"
       />
-      <div className="relative z-10 mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)]">
+      <div className="relative z-10 mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)] lg:px-12">
         <Reveal className="text-center">
           <p className="text-[.72rem] font-extrabold uppercase leading-4 tracking-[.14em] text-[#03AAAE]">
             Our expertise

@@ -120,32 +120,13 @@ function TeamCard({ member, originalIndex, direction, position }) {
         className="pointer-events-none absolute -inset-[70%] transform-gpu opacity-45 transition-opacity duration-700 [will-change:transform] group-hover:opacity-100"
       />
       <div className="relative transform-gpu overflow-hidden rounded-[15px] bg-[#1b1b1b] ring-1 ring-inset ring-white/10 [backface-visibility:hidden]">
-        <div className="relative aspect-square w-full overflow-hidden border-b border-white/10">
+        <div className="relative aspect-[286/209] w-full overflow-hidden border-b border-white/10">
           <motion.img
             src={img}
             alt={name}
-            animate={{
-              x: ["-1.5%", "1.5%", "-1.5%"],
-              y: ["1%", "-1.5%", "1%"],
-              scale: [1.04, 1.09, 1.04],
-            }}
-            transition={{
-              x: {
-                duration: 12 + originalIndex,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-              y: {
-                duration: 9 + originalIndex,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-              scale: {
-                duration: 8 + originalIndex,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
-            }}
+            initial={{ scale: 1.04, y: "0%" }}
+            whileHover={{ scale: 1.14, y: "-2%" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="h-full w-full transform-gpu object-cover object-top transition-[filter] duration-700 [backface-visibility:hidden] [will-change:transform] group-hover:saturate-125"
           />
           <span className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#1b1b1b] via-transparent to-[#03AAAE]/5" />
@@ -250,7 +231,7 @@ export default function Team() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,.045)_1px,transparent_1px)] [background-size:52px_52px] [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_80%,transparent)]"
       />
 
-      <div className="relative mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)]">
+      <div className="relative mx-auto w-[calc(100%-2rem)] max-w-[1650px] sm:w-[calc(100%-2.5rem)] lg:px-12">
         <motion.div
           initial="hidden"
           whileInView="visible"

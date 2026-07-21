@@ -149,7 +149,7 @@ export default function Approach() {
               animate={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
               exit={{ opacity: 0, y: -36, rotate: -1.5, scale: 0.92 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex h-[300px] flex-col items-center overflow-hidden rounded-[2rem] border border-white/25 bg-black/20 p-6 text-center shadow-[0_24px_60px_rgba(9,59,61,.28)] backdrop-blur-xl sm:h-[330px] sm:p-8"
+              className="relative flex h-[300px] flex-col items-center overflow-hidden rounded-[2rem] border border-white/25 bg-black/35 p-6 text-center shadow-[0_24px_60px_rgba(9,59,61,.28)] sm:h-[330px] sm:p-8"
             >
               <motion.span
                 initial={{ x: "-120%" }}

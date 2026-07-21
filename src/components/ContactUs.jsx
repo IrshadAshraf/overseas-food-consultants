@@ -39,7 +39,7 @@ export default function ContactUs() {
                 ease: "easeInOut",
                 delay: index * 0.35,
               }}
-              className={`absolute rounded-full border-[20px] border-[#0f5f62]/70 shadow-[inset_0_0_24px_rgba(5,42,44,.18),0_0_28px_rgba(5,42,44,.14)] ${position}`}
+              className={`absolute rounded-full border-[20px] border-[#0f5f62]/70 shadow-none md:shadow-[inset_0_0_24px_rgba(5,42,44,.18),0_0_28px_rgba(5,42,44,.14)] ${position}`}
             />
           ))}
         </div>

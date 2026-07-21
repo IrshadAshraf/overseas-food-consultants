@@ -4,11 +4,11 @@ import Reveal from "@/ui/Reveal";
 import { motion } from "framer-motion";
 import { useState } from "react";
 const backgroundRings = [
-  ["-right-[18%] -top-[48%] size-[2280px]", 16, 5, 3],
-  ["-right-[10%] -top-[30%] size-[1830px]", 14, -4, -3],
-  ["-right-[2%] -top-[12%] size-[1410px]", 12, 4, 2],
-  ["right-[8%] top-[8%] size-[990px]", 10, -3, -2],
-  ["right-[16%] top-[25%] size-[615px]", 8, 2, 2],
+  ["-right-[18%] -top-[48%] size-[min(2280px,220vw)]", 16, 5, 3],
+  ["-right-[10%] -top-[30%] size-[min(1830px,180vw)]", 14, -4, -3],
+  ["-right-[2%] -top-[12%] size-[min(1410px,145vw)]", 12, 4, 2],
+  ["right-[8%] top-[8%] size-[min(990px,110vw)]", 10, -3, -2],
+  ["right-[16%] top-[25%] size-[min(615px,75vw)]", 8, 2, 2],
 ];
 export default function ContactUs() {
   const [open, setOpen] = useState(false);
